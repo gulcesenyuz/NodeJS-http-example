@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
         const fileExt = path.extname(filePath); //Return the extension -> .js, .html
 
         if (fileExt == '.html') {
-            fs.exists(filePath, (exists) => {
+            fs.access(filePath, (exists) => {
                 if (!exists) {
                     res.statusCode = 404;
                     res.setHeader('Comtent-Type', 'text/html');
